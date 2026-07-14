@@ -558,47 +558,118 @@ function GoalCard({ goal }: { goal: Goal }) {
       </button>
 
       {/* حالة الهدف في أسفل اليسار */}
-      <div
-        style={{
-          position: 'absolute',
-          left: '17px',
-          bottom: '10px',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '5px',
-          whiteSpace: 'nowrap',
-          direction: 'ltr',
-        }}
-      >
-        {/* الأيقونة في أقصى اليسار */}
-        {isWarning ? <WarningIcon /> : <TrackIcon />}
+      
+{/* حالة الهدف */}
+<div
+  style={{
+    position: 'absolute',
+    left: '17px',
+    bottom: '10px',
+    display: 'flex',
+    alignItems: 'center',
+    gap: '5px',
+    whiteSpace: 'nowrap',
+    direction: 'rtl',
+  }}
+>
+  <span
+    style={{
+      color: '#FAFAFB',
+      fontSize: '10px',
+      fontWeight: 400,
+    }}
+  >
+    حالة الهدف:
+  </span>
 
-        <span
-          style={{
-            color: '#FAFAFB',
-            fontSize: '10px',
-            fontWeight: 400,
-            direction: 'rtl',
-          }}
-        >
-          حالة الهدف:
-        </span>
+  <span
+    style={{
+      color: statusColor,
+      fontSize: '10px',
+      fontWeight: 600,
+    }}
+  >
+    {isWarning ? 'يحتاج انتباه' : 'على المسار'}
+  </span>
 
-        <span
-          style={{
-            color: statusColor,
-            fontSize: '10px',
-            fontWeight: 600,
-            direction: 'rtl',
-          }}
-        >
-          {isWarning ? 'يحتاج انتباه' : 'على المسار'}
-        </span>
-      </div>
+  {isWarning ? <WarningIcon /> : <TrackIcon />}
+</div>
+      
     </article>
   );
 }
 
+function StatusBar() {
+  return (
+    <div
+      style={{
+        position: 'absolute',
+        top: '14px',
+        left: '22px',
+        right: '22px',
+        height: '20px',
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        direction: 'ltr',
+        zIndex: 30,
+        color: '#FAFAFB',
+      }}
+    >
+      <span style={{ fontSize: '13px', fontWeight: 700 }}>9:41</span>
+
+      <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+        <svg width="17" height="12" viewBox="0 0 17 12" fill="none">
+          <rect x="0" y="8" width="2.5" height="4" rx="1" fill="#FAFAFB" />
+          <rect x="4" y="6" width="2.5" height="6" rx="1" fill="#FAFAFB" />
+          <rect x="8" y="3" width="2.5" height="9" rx="1" fill="#FAFAFB" />
+          <rect x="12" y="0" width="2.5" height="12" rx="1" fill="#FAFAFB" />
+        </svg>
+
+        <svg width="17" height="13" viewBox="0 0 17 13" fill="none">
+          <path
+            d="M1.5 4.5C5.4 1 11.6 1 15.5 4.5"
+            stroke="#FAFAFB"
+            strokeWidth="1.7"
+            strokeLinecap="round"
+          />
+          <path
+            d="M4.2 7.2C6.6 5.2 10.4 5.2 12.8 7.2"
+            stroke="#FAFAFB"
+            strokeWidth="1.7"
+            strokeLinecap="round"
+          />
+          <path
+            d="M7 10C7.8 9.4 9.2 9.4 10 10"
+            stroke="#FAFAFB"
+            strokeWidth="1.7"
+            strokeLinecap="round"
+          />
+          <circle cx="8.5" cy="11.5" r="1" fill="#FAFAFB" />
+        </svg>
+
+        <svg width="25" height="13" viewBox="0 0 25 13" fill="none">
+          <rect
+            x="0.75"
+            y="0.75"
+            width="21"
+            height="11.5"
+            rx="3"
+            stroke="#FAFAFB"
+            strokeWidth="1.5"
+          />
+          <rect x="3" y="3" width="16.5" height="7" rx="1.5" fill="#FAFAFB" />
+          <path
+            d="M23 4.3V8.7"
+            stroke="#FAFAFB"
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
+        </svg>
+      </div>
+    </div>
+  );
+}
 export default function GoalsPage() {
   return (
     <main
@@ -618,20 +689,21 @@ export default function GoalsPage() {
           width: '375px',
           minHeight: '812px',
           margin: '0 auto',
-          paddingTop: '84px',
-          paddingBottom: '24px',
+          paddingTop: '104px',
+          paddingBottom: '105px',
           overflow: 'hidden',
           backgroundColor: '#02253D',
           boxSizing: 'border-box',
         }}
       >
+        <StatusBar />
         {/* زر الرجوع */}
         <button
           type="button"
           aria-label="الرجوع"
           style={{
             position: 'absolute',
-            top: '24px',
+            top: '43px',
             right: '18px',
             zIndex: 10,
             width: '43px',
@@ -702,20 +774,21 @@ export default function GoalsPage() {
       {/* عنوان الكرت */}
 <div
   style={{
+    position: 'absolute',
+    top: '12px',
+    right: '16px',
     display: 'flex',
-    justifyContent: 'flex-end',
     alignItems: 'center',
-    gap: '4px',
-    marginBottom: '8px',
-    direction: 'ltr',
+    gap: '3px',
   }}
 >
   <h2
     style={{
       margin: 0,
+      color: '#FAFAFB',
       fontSize: '12px',
       fontWeight: 600,
-      color: '#FAFAFB',
+      lineHeight: 1,
       whiteSpace: 'nowrap',
     }}
   >
@@ -725,131 +798,75 @@ export default function GoalsPage() {
   <ChartIcon />
 </div>
 
-{/* محتوى الكرت: القائمة والدائرة متقاربة */}
+{/* محتوى الكرت */}
 <div
   style={{
+    position: 'absolute',
+    top: '42px',
+    right: '18px',
+    left: '18px',
     display: 'flex',
+    justifyContent: 'space-between',
     alignItems: 'center',
-    justifyContent: 'center',
-    gap: '28px',
-    paddingTop: '4px',
-    direction: 'ltr',
   }}
 >
+  {/* الدائرة */}
+  <ProgressCircle />
+
   {/* القائمة */}
   <div
     style={{
       display: 'flex',
       flexDirection: 'column',
-      gap: '6px',
-      width: '120px',
+      gap: '5px',
+      width: '118px',
     }}
   >
-    <div
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        gap: '4px',
-        direction: 'ltr',
-      }}
-    >
-      <span
+    {[
+      { value: '85%', text: 'على المسار', icon: <TrackIcon /> },
+      { value: '15%', text: 'يحتاج انتباه', icon: <WarningIcon /> },
+      { value: '0%', text: 'لم يبدأ', icon: <NotStartedIcon /> },
+    ].map((item) => (
+      <div
+        key={item.text}
         style={{
-          width: '26px',
-          fontSize: '10px',
-          fontWeight: 700,
-          color: '#FAFAFB',
-          textAlign: 'left',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
         }}
       >
-        85%
-      </span>
+        <span
+          style={{
+            fontSize: '10px',
+            fontWeight: 700,
+            color: '#FAFAFB',
+            width: '28px',
+          }}
+        >
+          {item.value}
+        </span>
 
-      <span
-        style={{
-          fontSize: '10px',
-          color: '#FAFAFB',
-          whiteSpace: 'nowrap',
-          direction: 'rtl',
-        }}
-      >
-        على المسار
-      </span>
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '4px',
+          }}
+        >
+          <span
+            style={{
+              fontSize: '10px',
+              color: '#FAFAFB',
+            }}
+          >
+            {item.text}
+          </span>
 
-      <TrackIcon />
-    </div>
-
-    <div
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        gap: '4px',
-        direction: 'ltr',
-      }}
-    >
-      <span
-        style={{
-          width: '26px',
-          fontSize: '10px',
-          fontWeight: 700,
-          color: '#FAFAFB',
-          textAlign: 'left',
-        }}
-      >
-        15%
-      </span>
-
-      <span
-        style={{
-          fontSize: '10px',
-          color: '#FAFAFB',
-          whiteSpace: 'nowrap',
-          direction: 'rtl',
-        }}
-      >
-        يحتاج انتباه
-      </span>
-
-      <WarningIcon />
-    </div>
-
-    <div
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        gap: '4px',
-        direction: 'ltr',
-      }}
-    >
-      <span
-        style={{
-          width: '26px',
-          fontSize: '10px',
-          fontWeight: 700,
-          color: '#FAFAFB',
-          textAlign: 'left',
-        }}
-      >
-        0%
-      </span>
-
-      <span
-        style={{
-          fontSize: '10px',
-          color: '#FAFAFB',
-          whiteSpace: 'nowrap',
-          direction: 'rtl',
-        }}
-      >
-        لم يبدأ
-      </span>
-
-      <NotStartedIcon />
-    </div>
+          {item.icon}
+        </div>
+      </div>
+    ))}
   </div>
-
-  {/* الدائرة */}
-  <ProgressCircle />
 </div>
         </section>
         {/* بطاقات الأهداف */}
@@ -867,25 +884,46 @@ export default function GoalsPage() {
           ))}
         </section>
 
-        {/* الزر السفلي */}
-        <button
-          type="button"
-          style={{
-            display: 'block',
-            width: '335px',
-            height: '56px',
-            margin: '10px auto 0',
-            border: 0,
-            borderRadius: '16px',
-            backgroundColor: '#FF9D8E',
-            color: '#552C31',
-            fontSize: '16px',
-            fontWeight: 400,
-            cursor: 'pointer',
-          }}
-        >
-          تعديل بيانات المحاكاة
-        </button>
+       {/* زر تعديل بيانات المحاكاة الثابت والتفاعلي */}
+<button
+  type="button"
+  onClick={() => {
+    window.location.href = '/simulation';
+  }}
+  onPointerDown={(event) => {
+    event.currentTarget.style.transform =
+      'translateX(-50%) scale(0.97)';
+  }}
+  onPointerUp={(event) => {
+    event.currentTarget.style.transform =
+      'translateX(-50%) scale(1)';
+  }}
+  onPointerLeave={(event) => {
+    event.currentTarget.style.transform =
+      'translateX(-50%) scale(1)';
+  }}
+  style={{
+    position: 'fixed',
+    left: '50%',
+    bottom: '18px',
+    zIndex: 50,
+    width: '335px',
+    height: '56px',
+    padding: 0,
+    border: 0,
+    borderRadius: '16px',
+    backgroundColor: '#FF9D8E',
+    color: '#552C31',
+    fontSize: '16px',
+    fontWeight: 400,
+    cursor: 'pointer',
+    transform: 'translateX(-50%) scale(1)',
+    transition: 'transform 120ms ease, opacity 120ms ease',
+    boxShadow: '0 8px 22px rgba(0, 0, 0, 0.18)',
+  }}
+>
+  تعديل بيانات المحاكاة
+</button>
       </div>
     </main>
   );
