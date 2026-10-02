@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 💳 Financial Twin
 
-## Getting Started
+An AI-powered financial simulation experience designed to help users understand their financial situation, explore future scenarios, and make smarter financial decisions.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 💡 About the Project
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Financial Twin creates a personalized digital representation of a user's financial life.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Instead of only displaying numbers, the platform allows users to explore different financial scenarios and understand how decisions may affect their future financial health.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The project was developed as part of a FinTech Generative AI hackathon.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## ✨ What It Does
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- 📊 Provides a personalized financial overview
+- 🚗 Simulates major financial decisions such as purchasing a car
+- 🎯 Helps users create and track financial goals
+- 🔄 Compares different financial scenarios
+- 📈 Displays financial health indicators and recommendations
+- 🤖 Uses AI concepts to support smarter financial planning
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🛠 Built With
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Next.js
+- TypeScript
+- React
+- Tailwind CSS
+- Generative AI concepts
+- Financial simulation logic
+- Git & GitHub
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 👩‍💻 My Contribution
+
+As part of the development team, I contributed to the implementation of the Financial Twin interface and user experience.
+
+My work included developing the **financial goals experience**, working on interface components, and collaborating with the team through GitHub during the project.
+
+---
+
+## 🚀 Project Background
+
+Financial Twin was developed during a FinTech Generative AI hackathon as a collaborative team project.
+
+The project explores how AI and financial technology can transform complex financial information into a more interactive and understandable experience.
+
+---
+
+### ✨ Turning financial decisions into scenarios you can explore.
